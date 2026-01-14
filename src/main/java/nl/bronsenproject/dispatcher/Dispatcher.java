@@ -2,7 +2,6 @@ package nl.bronsenproject.dispatcher;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.core.GenericTypeResolver;
-import org.springframework.stereotype.Component;
 
 import java.util.Collections;
 import java.util.List;
@@ -16,7 +15,6 @@ import java.util.concurrent.atomic.AtomicReference;
  * It automatically discovers all {@link TypedHandler} beans in the Spring context
  * and manages a pipeline of {@link Behavior}s that surround the handler execution.
  */
-@Component
 public class Dispatcher {
 
     private final ApplicationContext context;

@@ -107,8 +107,8 @@ public void createUserAsync(String name) {
 
 ## Getting Started
 
-1. **Add Dependency**: Ensure you have Spring Context in your project (see `pom.xml`).
-2. **Scan Components**: Make sure `nl.bronsenproject.dispatcher` is within your Spring component scan path.
+1. **Add Dependency**: Add the dispatcher library to your project's dependencies.
+2. **Auto-Configuration**: For Spring Boot projects, the `Dispatcher` bean is automatically configured. No manual scanning or `@Import` is required for the library's package.
 3. **Define Requests and Handlers**: Create your request records/classes and their corresponding handlers annotated with `@Component`.
 4. **Inject Dispatcher**: Inject the `Dispatcher` bean wherever you need to send requests.
 
