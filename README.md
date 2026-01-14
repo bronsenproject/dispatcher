@@ -68,8 +68,7 @@ public class UserController {
     }
 
     @PostMapping
-    public ResponseEntity<Long> createUser(@RequestBody CreateUserRequest request) {
-        var command = new CreateUserCommand(request.name());
+    public ResponseEntity<Long> createUser(@RequestBody CreateUserCommand command) {
         Long userId = dispatcher.send(command);
         return ResponseEntity.ok(userId);
     }
