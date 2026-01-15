@@ -60,7 +60,7 @@ jobs:
           server-username: ${{ vars.MAVEN_CENTRAL_USERNAME }}
           server-password: ${{ secrets.MAVEN_CENTRAL_PASSWORD }}
 
-      - name: Deploy
+      - name: Release Snapshot
         if: github.ref == 'refs/heads/dev'
         env:
           MAVEN_GPG_KEY: ${{ secrets.GPG_SECRET_KEY }}
@@ -68,7 +68,7 @@ jobs:
         run: |
           mvn deploy
 
-      - name: Release
+      - name: Release Production
         if: github.ref == 'refs/heads/prod'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
