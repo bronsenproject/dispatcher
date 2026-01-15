@@ -59,3 +59,26 @@ MAVEN_GPG_KEY=$(cat mykey.tsk.asc) MAVEN_GPG_PASSPHRASE=<your-passphrase> mvn cl
 ```
 
 > **Note**: The `central-publishing-maven-plugin` is configured with `<autoPublish>true</autoPublish>`, so artifacts will be published automatically once they pass validation in the staging portal.
+## 4. GitHub Actions Pipeline
+
+The project includes a GitHub Actions pipeline in `.github/workflows/pipeline.yml` that automates the deployment process.
+
+### Required Secrets
+
+You must configure the following secrets in your GitHub repository:
+
+- `OSSRH_USERNAME`: Your Sonatype token username.
+- `OSSRH_PASSWORD`: Your Sonatype token password.
+- `GPG_SECRET_KEY`: The exported GPG Transferable Secret Key (TSK) content (from step 2.2).
+- `GPG_PASSPHRASE`: The passphrase for your GPG key.
+
+### Branch Flows
+
+- **`dev` branch**: On every push, the pipeline builds the project and performs a signed `mvn deploy` of the snapshot version to Maven Central.
+- **`prod` branch**: On every push, the pipeline uses the `maven-release-plugin` (`mvn release:prepare release:perform`) to:
+    1.  Automatically bump the version (removing `-SNAPSHOT`).
+    2.  Tag the release in Git.
+    3.  Deploy the release artifacts to Maven Central.
+    4.  Bump to the next development version.
+
+> **Note**: The `maven-release-plugin` requires `GITHUB_TOKEN` permissions to push tags and commits back to the repository. The default `GITHUB_TOKEN` provided by GitHub Actions usually has these permissions if the workflow is triggered by a push to a protected branch, but ensure "Read and write permissions" are enabled in the repository's Action settings.
