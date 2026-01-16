@@ -54,6 +54,12 @@ jobs:
           server-username: ${{ vars.MAVEN_CENTRAL_USERNAME }}
           server-password: ${{ secrets.MAVEN_CENTRAL_PASSWORD }}
 
+
+      - name: Set up JDK 17
+        if: github.ref == 'refs/heads/dev'
+        run: |
+          cat ~/.m2/settings.xml
+
       - name: Release Snapshot
         if: github.ref == 'refs/heads/dev'
         env:
