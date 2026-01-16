@@ -56,10 +56,6 @@ jobs:
 
       - name: Release Snapshot
         if: github.ref == 'refs/heads/dev'
-        with:
-          server-id: central
-          server-username: ${{ vars.MAVEN_CENTRAL_USERNAME }}
-          server-password: ${{ secrets.MAVEN_CENTRAL_PASSWORD }}
         env:
           MAVEN_GPG_KEY: ${{ secrets.GPG_SECRET_KEY }}
           MAVEN_GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
@@ -68,10 +64,6 @@ jobs:
 
       - name: Release Production
         if: github.ref == 'refs/heads/prod'
-        with:
-          server-id: central
-          server-username: ${{ vars.MAVEN_CENTRAL_USERNAME }}
-          server-password: ${{ secrets.MAVEN_CENTRAL_PASSWORD }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           MAVEN_GPG_KEY: ${{ secrets.GPG_SECRET_KEY }}
