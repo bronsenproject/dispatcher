@@ -56,11 +56,9 @@ jobs:
 
       - name: Write settings-security.xml
         shell: bash
-        env:
-          MAVEN_CENTRAL_MASTER_PASSWORD: ${{ secrets.MAVEN_CENTRAL_MASTER_PASSWORD }}
         run: |
           mkdir -p ~/.m2
-          printf "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<settingsSecurity>\n  <master>%s</master>\n</settingsSecurity>\n" "${MAVEN_CENTRAL_MASTER_PASSWORD}" > ~/.m2/settings-security.xml
+          printf "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<settingsSecurity>\n  <master>%s</master>\n</settingsSecurity>\n" "${{ secrets.MAVEN_CENTRAL_MASTER_PASSWORD }}" > ~/.m2/settings-security.xml
           cat ~/.m2/settings.xml
           cat ~/.m2/settings-security.xml
 
