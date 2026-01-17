@@ -73,6 +73,8 @@ jobs:
         run: |
           mkdir ~/.gnupg
           echo "${{ secrets.GPG_PUBLIC_KEY }}" > ~/.gnupg/pubring.kbx
+          chmod 700 ~/.gnupg
+          chmod 600 ~/.gnupg/pubring.kbx
 
       - name: Release Snapshot
         if: github.ref == 'refs/heads/dev'
