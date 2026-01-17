@@ -4,7 +4,7 @@
 
     <groupId>nl.bronsenproject</groupId>
     <artifactId>dispatcher</artifactId>
-    <version>0.0.5</version>
+    <version>0.0.6-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>Dispatcher</name>
     <url>https://github.com/bronsenproject/dispatcher</url>
@@ -14,7 +14,7 @@
         <url>https://github.com/bronsenproject/dispatcher.git</url>
         <connection>scm:git:https://github.com/bronsenproject/dispatcher.git</connection>
         <developerConnection>scm:git:ssh://git@github.com/bronsenproject/dispatcher.git</developerConnection>
-        <tag>v0.0.5</tag>
+        <tag>HEAD</tag>
     </scm>
 
     <licenses>
