@@ -68,14 +68,6 @@ jobs:
           chmod 700 ~/.ssh
           chmod 600 ~/.ssh/id_ed25519
 
-      - name: Create GPG public key
-        shell: bash
-        run: |
-          mkdir ~/.gnupg
-          echo "${{ secrets.GPG_PUBLIC_KEY }}" > ~/.gnupg/pubring.kbx
-          chmod 700 ~/.gnupg
-          chmod 600 ~/.gnupg/pubring.kbx
-
       - name: Release Snapshot
         if: github.ref == 'refs/heads/dev'
         env:
@@ -92,4 +84,4 @@ jobs:
         run: |
           git config --global user.email "dev@bronsenproject.nl"
           git config --global user.name "Dev @ BronsEnProject"
-          mvn release:prepare release:perform -B -Dgpg.signer=bc
+          mvn release:prepare release:perform -B

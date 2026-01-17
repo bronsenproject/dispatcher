@@ -12,6 +12,9 @@ import java.util.concurrent.ExecutionException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Basic tests for the {@link Dispatcher} ensuring synchronous and asynchronous request handling.
+ */
 @SpringJUnitConfig(DispatcherBasicTest.Config.class)
 public class DispatcherBasicTest {
 

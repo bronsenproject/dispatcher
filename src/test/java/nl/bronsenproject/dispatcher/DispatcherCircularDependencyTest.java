@@ -11,6 +11,10 @@ import org.springframework.stereotype.Component;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+/**
+ * Tests the {@link Dispatcher} for circular dependency handling.
+ * Specifically checks if a handler can have the dispatcher injected.
+ */
 @SpringJUnitConfig(DispatcherCircularDependencyTest.Config.class)
 public class DispatcherCircularDependencyTest {
 
