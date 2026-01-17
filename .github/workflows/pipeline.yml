@@ -56,14 +56,13 @@ jobs:
 
 
       - name: Write settings-security.xml
-        if: github.ref == 'refs/heads/dev'
         shell: bash
         env:
           MAVEN_CENTRAL_MASTER_PASSWORD: ${{ secrets.MAVEN_CENTRAL_MASTER_PASSWORD }}
         run: |
           mkdir -p ~/.m2
-          echo "${MAVEN_CENTRAL_MASTER_PASSWORD}" > ~/.m2/settings-security.xml
-          chmod 600 ~/.m2/settings-security.xml
+          echo "<settingsSecurity><master>${MAVEN_CENTRAL_MASTER_PASSWORD}</master></settingsSecurity>" > ~/.m2/settings-security.xml
+          chmod 600 ~/.m2/settings-security.xml        
 
       - name: Release Snapshot
         if: github.ref == 'refs/heads/dev'
