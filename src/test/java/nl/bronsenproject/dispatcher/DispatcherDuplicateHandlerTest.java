@@ -8,6 +8,9 @@ import org.springframework.context.annotation.Configuration;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+/**
+ * Tests that the {@link Dispatcher} correctly identifies and reports duplicate handlers for the same request type.
+ */
 public class DispatcherDuplicateHandlerTest {
 
     @Test

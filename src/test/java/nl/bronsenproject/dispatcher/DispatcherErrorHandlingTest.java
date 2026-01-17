@@ -9,6 +9,9 @@ import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+/**
+ * Tests for error conditions in the {@link Dispatcher}, such as missing handlers or null requests.
+ */
 @SpringJUnitConfig(DispatcherErrorHandlingTest.Config.class)
 public class DispatcherErrorHandlingTest {
 

@@ -13,6 +13,10 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+/**
+ * Tests the {@link Behavior} pipeline in the {@link Dispatcher}.
+ * Verifies that behaviors are executed in the correct order.
+ */
 @SpringJUnitConfig(DispatcherBehaviorTest.Config.class)
 public class DispatcherBehaviorTest {
 
