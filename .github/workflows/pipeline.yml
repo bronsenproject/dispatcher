@@ -60,6 +60,14 @@ jobs:
           cat ~/.m2/settings.xml
           cat ~/.m2/settings-security.xml
 
+      - name: Write SSH key
+        shell: bash
+        run: |
+          mkdir ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
+          chmod 700 ~/.ssh
+          chmod 600 ~/.ssh/id_ed25519
+
       - name: Release Snapshot
         if: github.ref == 'refs/heads/dev'
         env:
@@ -77,4 +85,4 @@ jobs:
         run: |
           git config --global user.email "dev@bronsenproject.nl"
           git config --global user.name "Dev @ BronsEnProject"
-          mvn release:prepare release:perform -B
+          mvn release:prepare release:perform -B -Dgpg.signer=bc
