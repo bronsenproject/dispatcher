@@ -1,6 +1,5 @@
 [![badge](https://img.shields.io/maven-central/v/nl.bronsenproject/dispatcher)](https://search.maven.org/artifact/nl.bronsenproject/dispatcher)
-[![CodeQL](https://github.com/bronsenproject/dispatcher/actions/workflows/github-code-scanning/codeql/badge.svg?event=check_run)](https://github.com/bronsenproject/dispatcher/actions/workflows/github-code-scanning/codeql)
-
+[![build](https://github.com/bronsenproject/dispatcher/actions/workflows/pipeline.yml/badge.svg)](https://github.com/bronsenproject/dispatcher/actions/workflows/pipeline.yml)
 # Dispatcher
 
 A lightweight, MediatR-inspired mediator pattern implementation for Java and Spring. This project provides a robust way to decouple your application's request/response logic. It is designed to be used directly in your API controllers or within other handlers, avoiding unnecessary service layers.
