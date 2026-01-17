@@ -141,6 +141,7 @@
                 <version>3.1.1</version>
                 <configuration>
                     <arguments>-Dgpg.signer=bc</arguments>
+                    <scmCommentPrefix>[skip ci] </scmCommentPrefix>
                     <tagNameFormat>v@{project.version}</tagNameFormat>
                     <autoVersionSubmodules>true</autoVersionSubmodules>
                     <releaseProfiles>release</releaseProfiles>
