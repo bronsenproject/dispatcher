@@ -1,2 +1,25 @@
 /target
 .idea/
+
+# OS meta files
+.DS_Store
+Thumbs.db
+
+# IntelliJ module files
+*.iml
+*.iws
+*.ipr
+
+# VS Code
+.vscode/
+
+# Eclipse
+.settings/
+.project
+.classpath
+
+# Maven wrapper meta
+.mvn/wrapper/maven-wrapper.jar
+
+# Log files
+*.log
